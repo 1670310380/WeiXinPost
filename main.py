@@ -12,10 +12,10 @@ def get_access_token():
     app_id = config.app_id
     # appSecret
     app_secret = config.app_secret
-    post_url = ("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET"
+    post_url = ("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}"
                 .format(app_id, app_secret))
     print(get(post_url).json())
-    access_token = get(post_url).json()['{"errcode":40013,"errmsg":"invalid appid rid: 66389d7a-1b073faa-303f862c"}']
+    access_token = get(post_url).json()['access_token']
     # print(access_token)
     return access_token
 
